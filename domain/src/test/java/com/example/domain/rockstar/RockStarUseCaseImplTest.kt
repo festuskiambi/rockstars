@@ -1,8 +1,8 @@
 package com.example.domain.rockstar
 
 import com.example.domain.entity.Entity
-import com.example.domain.repository.rockstar.IRockStarRepository
-import com.example.domain.usecase.rockstars.RockStarUseCaseImpl
+import com.example.domain.repository.rockstar.IRemoteRockStarRepository
+import com.example.domain.usecase.rockstars.RemoteRockStarUseCaseImpl
 import com.example.domain.common.Result
 import com.example.domain.common.RockstarsError
 import io.mockk.*
@@ -17,9 +17,9 @@ import kotlin.test.assertTrue
  */
 class RockStarUseCaseImplTest {
 
-    private val repository: IRockStarRepository = mockk()
+    private val repositoryRemote: IRemoteRockStarRepository = mockk()
 
-    val useCase = RockStarUseCaseImpl(repository)
+    val useCase = RemoteRockStarUseCaseImpl(repositoryRemote)
 
     fun getRockStar(
         id: String = "5d134ac7d79b92c00074f892",
@@ -39,22 +39,22 @@ class RockStarUseCaseImplTest {
     @Test
     fun `On get rockStars success`() = runBlocking {
         val rockStarList = listOf(getRockStar(), getRockStar())
-        coEvery { repository.getRockStars() } returns Result.build { rockStarList }
+        coEvery { repositoryRemote.getRockStars() } returns Result.build { rockStarList }
 
         val result = useCase.getRockStars()
 
-        coVerify { repository.getRockStars() }
+        coVerify { repositoryRemote.getRockStars() }
         if (result is Result.Value) assertEquals(result.value, rockStarList)
         else assertTrue { false }
     }
 
     @Test
     fun `On get rockStars error`() = runBlocking {
-        coEvery { repository.getRockStars() } returns Result.build { throw RockstarsError.RemoteIOException }
+        coEvery { repositoryRemote.getRockStars() } returns Result.build { throw RockstarsError.RemoteIOException }
 
         val  result = useCase.getRockStars()
 
-        coVerify { repository.getRockStars() }
+        coVerify { repositoryRemote.getRockStars() }
         assertTrue { result is Result.Error }
     }
 }
