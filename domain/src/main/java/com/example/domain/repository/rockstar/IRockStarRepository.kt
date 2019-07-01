@@ -7,7 +7,7 @@ import java.lang.Exception
 /**
  * Created by Festus Kiambi on 7/1/19.
  */
-interface RockStarRepository {
+interface IRockStarRepository {
 
-    fun getRockStars(): Result<Exception, List<Entity.RockStar>>
+   suspend fun getRockStars(): Result<Exception, List<Entity.RockStar>>
 }
