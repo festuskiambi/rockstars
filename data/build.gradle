@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
@@ -8,14 +8,15 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build_versions.target_sdk
+
     defaultConfig {
-        applicationId "com.example.rockstars"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -43,43 +44,27 @@ android {
 }
 
 dependencies {
-    //other modules within the project
+    //modules within the project:
     implementation project(":domain")
-    implementation project(":data")
-
-    //android dependencies
-    implementation deps.support.constraint_layout
-    implementation deps.support.lifecycle_extensions
-    implementation deps.support.appcompat
-    implementation deps.support.recyclerview
-    implementation deps.support.cardview
-    implementation deps.support.core_utils
-    implementation deps.support.design
-    implementation deps.support.core_ktx
-    implementation deps.support.annotations
-    implementation deps.support.ktx_fragment
-    implementation deps.support.fragment
-
-    //koin
-    implementation deps.koin.android
-    implementation deps.koin.viewmodel
-    implementation deps.koin.scopes
-
-    //retrofit
-    implementation deps.retrofit.retrofit
-    implementation deps.retrofit.converter
-
-    //room
-    implementation deps.room.runtime
-    kapt deps.room.compiler
 
     //kotlin
     implementation deps.kotlin.stdlib
     implementation deps.kotlin.coroutines_core
     implementation deps.kotlin.coroutines_android
 
+    //retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.converter
+
+    //moshi
+    implementation deps.moshi.moshi
+
+    //room
+    implementation deps.room.runtime
+    kapt deps.room.compiler
+
     //test
     testImplementation deps.test.junit
     testImplementation deps.test.mockk
-    androidTestImplementation deps.test.runner
+    testImplementation deps.test.kotlin_junit
 }
