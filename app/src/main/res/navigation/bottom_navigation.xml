@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/bottom_navigation"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment" android:name="com.example.rockstars.listrockstars.ui.HomeFragment"
+              tools:layout="@layout/fragment_home" android:label="Rockstars"/>
+    <fragment android:id="@+id/bookmarkFragment"
+              android:name="com.example.rockstars.listbookmarks.ui.ListBookmarkFragment"
+              android:label="Bookmarks" tools:layout="@layout/fragment_list_bookmark"/>
+    <fragment android:id="@+id/profileFragment" android:name="com.example.rockstars.profile.ui.ProfileFragment"
+              android:label="Profile" tools:layout="@layout/fragment_profile"/>
+</navigation>
