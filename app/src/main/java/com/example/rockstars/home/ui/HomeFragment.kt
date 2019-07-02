@@ -1,4 +1,4 @@
-package com.example.rockstars.listrockstars.ui
+package com.example.rockstars.home.ui
 
 
 import android.os.Bundle
