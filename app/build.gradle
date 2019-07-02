@@ -59,6 +59,8 @@ dependencies {
     implementation deps.support.annotations
     implementation deps.support.ktx_fragment
     implementation deps.support.fragment
+    implementation deps.support.navigation_fragment
+    implementation deps.support.navigation_ui
 
     //koin
     implementation deps.koin.android
