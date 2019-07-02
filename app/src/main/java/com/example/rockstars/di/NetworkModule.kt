@@ -11,6 +11,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 
 val networkModule = module {
+
     factory { OkHttpClient.Builder().addInterceptor(get()).build() }
 
     single {
