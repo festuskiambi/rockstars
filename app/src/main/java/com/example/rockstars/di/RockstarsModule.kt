@@ -1,8 +1,12 @@
 package com.example.rockstars.di
 
+import com.example.data.source.local.LocalRockStarRepositoryImpl
 import com.example.data.source.remote.RemoteRockStarRepositoryImpl
+import com.example.domain.repository.rockstar.ILocalRockStarRepository
 import com.example.domain.repository.rockstar.IRemoteRockStarRepository
+import com.example.domain.usecase.rockstars.ILocalBookMarkUseCase
 import com.example.domain.usecase.rockstars.IRemoteRockStarUseCase
+import com.example.domain.usecase.rockstars.LocalBookMarkUseCaseImpl
 import com.example.domain.usecase.rockstars.RemoteRockStarUseCaseImpl
 import com.example.rockstars.base.AppDispatchers
 import com.example.rockstars.home.viewmodel.HomeViewModel
@@ -22,6 +26,10 @@ val rockStarsModule = module {
 
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
 
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { HomeViewModel(get(), get(), get()) }
+
+    factory { LocalRockStarRepositoryImpl(get()) as ILocalRockStarRepository }
+
+    factory { LocalBookMarkUseCaseImpl(get()) as ILocalBookMarkUseCase }
 
 }
