@@ -71,6 +71,9 @@ dependencies {
     implementation deps.retrofit.retrofit
     implementation deps.retrofit.converter
 
+    //moshi
+    implementation deps.moshi.moshi
+
     //room
     implementation deps.room.runtime
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

@@ -11,6 +11,7 @@ import com.example.domain.repository.rockstar.IRemoteRockStarRepository
 
 class RemoteRemoteRockStarRepositoryImpl(private val apiInterface: ApiInterface) : IRemoteRockStarRepository {
     override suspend fun getRockStars(): Result<Exception, List<Entity.RockStar>> {
-        return Result.build { apiInterface.getRockSatars().body()!!.toEntityRockstarList() }
+        val res = apiInterface.getRockStars().body()
+        return Result.build { apiInterface.getRockStars().body()!!.toEntityRockstarList() }
     }
 }
