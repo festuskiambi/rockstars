@@ -1,19 +1,16 @@
 package com.example.rockstars.bookmarks.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entity.Entity
 import com.example.domain.usecase.rockstars.ILocalBookMarkUseCase
 import com.example.rockstars.R
-import com.example.rockstars.base.AppDispatchers
+import com.example.rockstars.common.AppDispatchers
 import com.example.rockstars.common.BaseViewModel
 import com.example.rockstars.common.Event
 import com.example.domain.common.Result
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 /**
  * Created by Festus Kiambi on 7/3/19.

@@ -8,7 +8,7 @@ import com.example.domain.usecase.rockstars.ILocalBookMarkUseCase
 import com.example.domain.usecase.rockstars.IRemoteRockStarUseCase
 import com.example.domain.usecase.rockstars.LocalBookMarkUseCaseImpl
 import com.example.domain.usecase.rockstars.RemoteRockStarUseCaseImpl
-import com.example.rockstars.base.AppDispatchers
+import com.example.rockstars.common.AppDispatchers
 import com.example.rockstars.bookmarks.viewmodel.BookmarkViewModel
 import com.example.rockstars.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.Dispatchers

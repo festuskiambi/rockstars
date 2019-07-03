@@ -8,11 +8,10 @@ import com.example.domain.entity.Entity
 import com.example.domain.usecase.rockstars.ILocalBookMarkUseCase
 import com.example.domain.usecase.rockstars.IRemoteRockStarUseCase
 import com.example.rockstars.R
-import com.example.rockstars.base.AppDispatchers
+import com.example.rockstars.common.AppDispatchers
 import com.example.rockstars.common.BaseViewModel
 import com.example.rockstars.common.Event
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * Created by Festus Kiambi on 7/2/19.
