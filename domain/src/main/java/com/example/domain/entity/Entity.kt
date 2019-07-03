@@ -12,4 +12,10 @@ sealed class Entity {
         val picture: String,
         val about: String
     ) : Entity()
+
+    data class User(
+        val id: Int,
+        val name: String,
+        val picture: String
+    ) : Entity()
 }
