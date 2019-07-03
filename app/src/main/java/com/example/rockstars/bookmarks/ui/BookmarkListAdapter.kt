@@ -34,6 +34,7 @@ class BookmarkListAdapter(private val viewModel: BookmarkViewModel) :
                 .load(rockStar.picture)
                 .into(holder.picture)
             holder.delete.setOnClickListener {
+                viewModel.deleteBookmark(rockStar)
             }
         }
     }
