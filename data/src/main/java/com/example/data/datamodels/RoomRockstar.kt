@@ -19,15 +19,15 @@ data class RoomRockStar(
     @ColumnInfo(name = "id")
     val id: String,
 
-    @ColumnInfo(name = "name")
-    val name: String,
-
-    @ColumnInfo(name = "about")
-    val about: String,
-
     @ColumnInfo(name = "index")
     val index: Int,
 
+    @ColumnInfo(name = "name")
+    val name: String,
+
     @ColumnInfo(name = "picture")
-    val picture: String
+    val picture: String,
+
+    @ColumnInfo(name = "about")
+    val about: String
 )

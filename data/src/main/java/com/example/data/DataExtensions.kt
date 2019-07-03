@@ -29,10 +29,10 @@ internal val RoomRockStar.toEntityRockStar: Entity.RockStar
 internal val Entity.RockStar.toRoomRockStar: RoomRockStar
     get() = RoomRockStar(
         this.id,
-        this.name,
-        this.about,
         this.index,
-        this.picture
+        this.name,
+        this.picture,
+        this.about
     )
 
 
