@@ -27,6 +27,7 @@ versions.core_ktx = "1.0.0"
 versions.ktx_fragment = "1.0.0"
 versions.glide = "4.8.0"
 versions.nav_version_ktx = "2.1.0-alpha05"
+versions.circleimageview = "3.0.0"
 
 def support = [:]
 support.annotations = "androidx.annotation:annotation:$versions.support"
@@ -64,6 +65,10 @@ def glide = [:]
 glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
 glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
 deps.glide = glide
+
+def circleimageview = [:]
+circleimageview.image = "de.hdodenhof:circleimageview:$versions.circleimageview"
+deps.circleimageview = circleimageview
 
 def room = [:]
 room.runtime = "androidx.room:room-runtime:$versions.room"

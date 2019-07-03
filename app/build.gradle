@@ -74,6 +74,13 @@ dependencies {
     //moshi
     implementation deps.moshi.moshi
 
+    //glide
+    implementation deps.glide.runtime
+    kapt deps.glide.compiler
+
+    //circle image view
+    implementation deps.circleimageview.image
+
     //room
     implementation deps.room.runtime
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
