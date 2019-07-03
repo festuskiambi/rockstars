@@ -30,7 +30,8 @@
       android:layout_marginStart="8dp"
       app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
       app:layout_constraintTop_toTopOf="@+id/iv_profile"
-      android:layout_marginBottom="24dp" android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+      android:layout_marginBottom="32dp"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
   <TextView
       tools:text="TextView"
       android:layout_width="wrap_content"

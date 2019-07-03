@@ -30,11 +30,16 @@ class BookmarkViewModel(
         getBookmarks()
     }
 
-    private fun getBookmarks()= viewModelScope.launch(dispatchers.io) {
+    private fun getBookmarks() = viewModelScope.launch(dispatchers.io) {
         when (val bookmarkResult = iLocalBookMarkUseCase.getBookmarks()) {
             is Result.Value -> bookmarksListState.postValue(bookmarkResult.value)
             is Result.Error -> _snackbarError.postValue(Event(R.string.error))
         }
+    }
+
+    fun deleteBookmark(rockStar: Entity.RockStar) = viewModelScope.launch(dispatchers.io) {
+        iLocalBookMarkUseCase.deleteBookMark(rockStar)
+        getBookmarks()
     }
 
 }
