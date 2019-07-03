@@ -8,5 +8,9 @@ import com.example.domain.entity.Entity
  */
 interface ILocalRockStarRepository {
 
-    fun createBookMark(rockStar: Entity.RockStar): Result<Exception, Unit>
+  suspend fun createBookMark(rockStar: Entity.RockStar): Result<Exception, Unit>
+
+  suspend fun getBookmarks(): Result<Exception, List<Entity.RockStar>>
+
+  suspend fun deleteBookMark(rockStar: Entity.RockStar): Result<Exception, Unit>
 }

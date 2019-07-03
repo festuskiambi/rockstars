@@ -1,21 +1,45 @@
 package com.example.data
 
 import com.example.data.datamodels.ApiRockStar
+import com.example.data.datamodels.RoomRockStar
 import com.example.domain.entity.Entity
 
 /**
  * Created by Festus Kiambi on 7/1/19.
  */
 
-internal val ApiRockStar.toEntityRockStar : Entity.RockStar
-get() = Entity.RockStar(
-    this.id ,
-    this.index,
-    this.name,
-    this.picture,
-    this.about
-)
+internal val ApiRockStar.toEntityRockStar: Entity.RockStar
+    get() = Entity.RockStar(
+        this.id,
+        this.index,
+        this.name,
+        this.picture,
+        this.about
+    )
 
-internal fun List<ApiRockStar>.toEntityRockstarList(): List<Entity.RockStar> = this.flatMap {
+internal val RoomRockStar.toEntityRockStar: Entity.RockStar
+    get() = Entity.RockStar(
+        this.id,
+        this.index,
+        this.name,
+        this.picture,
+        this.about
+    )
+
+internal val Entity.RockStar.toRoomRockStar: RoomRockStar
+    get() = RoomRockStar(
+        this.id,
+        this.name,
+        this.about,
+        this.index,
+        this.picture
+    )
+
+
+internal fun List<ApiRockStar>.toRemoteEntityRockstarList(): List<Entity.RockStar> = this.flatMap {
+    listOf(it.toEntityRockStar)
+}
+
+internal fun List<RoomRockStar>.toLocalEntityRockStarList(): List<Entity.RockStar> = this.flatMap {
     listOf(it.toEntityRockStar)
 }

@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
     tableName = "bookmarks",
     indices = [Index("id")]
 )
-data class RoomRockstar(
+data class RoomRockStar(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
