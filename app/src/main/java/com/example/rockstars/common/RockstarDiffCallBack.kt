@@ -1,4 +1,4 @@
-package com.example.rockstars.home.ui
+package com.example.rockstars.common
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.entity.Entity
