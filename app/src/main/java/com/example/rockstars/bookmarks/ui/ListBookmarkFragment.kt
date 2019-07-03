@@ -1,4 +1,4 @@
-package com.example.rockstars.listbookmarks.ui
+package com.example.rockstars.bookmarks.ui
 
 
 import android.os.Bundle
