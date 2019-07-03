@@ -33,6 +33,10 @@ class RockStarListAdapter(private val viewModel: HomeViewModel) :
             Glide.with(holder.picture)
                 .load(rockStar.picture)
                 .into(holder.picture)
+
+            holder.favorite.setOnClickListener {
+                viewModel.addBookMark(rockStar)
+            }
         }
     }
 
@@ -40,5 +44,6 @@ class RockStarListAdapter(private val viewModel: HomeViewModel) :
         val picture: ImageView = view.iv_profile
         val name: TextView = view.tv_name
         val status: TextView = view.tv_status
+        val favorite: ImageView = view.iv_favorite
     }
 }
