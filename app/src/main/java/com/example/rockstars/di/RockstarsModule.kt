@@ -1,6 +1,6 @@
 package com.example.rockstars.di
 
-import com.example.data.source.remote.RemoteRemoteRockStarRepositoryImpl
+import com.example.data.source.remote.RemoteRockStarRepositoryImpl
 import com.example.domain.repository.rockstar.IRemoteRockStarRepository
 import com.example.domain.usecase.rockstars.IRemoteRockStarUseCase
 import com.example.domain.usecase.rockstars.RemoteRockStarUseCaseImpl
@@ -16,7 +16,7 @@ import org.koin.dsl.module
 
 val rockStarsModule = module {
 
-    factory { RemoteRemoteRockStarRepositoryImpl(get()) as IRemoteRockStarRepository }
+    factory { RemoteRockStarRepositoryImpl(get()) as IRemoteRockStarRepository }
 
     factory { RemoteRockStarUseCaseImpl(get()) as IRemoteRockStarUseCase }
 
