@@ -32,8 +32,8 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        observeViewModel()
         setupAdapter()
+        observeViewModel()
     }
 
     private fun setupAdapter() {

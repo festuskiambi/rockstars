@@ -1,6 +1,7 @@
 package com.example.rockstars.bookmarks.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entity.Entity
@@ -11,6 +12,8 @@ import com.example.rockstars.common.BaseViewModel
 import com.example.rockstars.common.Event
 import com.example.domain.common.Result
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 /**
  * Created by Festus Kiambi on 7/3/19.
@@ -27,10 +30,10 @@ class BookmarkViewModel(
         getBookmarks()
     }
 
-    private fun getBookmarks()= viewModelScope.launch (dispatchers.main){
+    private fun getBookmarks()= viewModelScope.launch(dispatchers.io) {
         when (val bookmarkResult = iLocalBookMarkUseCase.getBookmarks()) {
-            is Result.Value -> bookmarksListState.value = bookmarkResult.value
-            is Result.Error -> _snackbarError.value = Event(R.string.error)
+            is Result.Value -> bookmarksListState.postValue(bookmarkResult.value)
+            is Result.Error -> _snackbarError.postValue(Event(R.string.error))
         }
     }
 

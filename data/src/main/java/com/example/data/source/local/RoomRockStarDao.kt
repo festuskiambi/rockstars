@@ -10,7 +10,7 @@ import com.example.data.datamodels.RoomRockStar
 @Dao
 interface RoomRockStarDao {
 
-    @Query("SELECT * FROM bookmarks ORDER BY `index`")
+    @Query("SELECT * FROM bookmarks")
     fun getRockStars(): List<RoomRockStar>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

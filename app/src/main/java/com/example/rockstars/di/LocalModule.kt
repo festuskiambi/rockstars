@@ -1,5 +1,6 @@
 package com.example.rockstars.di
 
+import androidx.room.Room
 import com.example.data.source.local.RockStarDataBase
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -9,6 +10,7 @@ import org.koin.dsl.module
  */
 
 val localModule = module {
-    single { RockStarDataBase.buildDatabase(androidContext()) }
-    factory { (get() as RockStarDataBase).RoomRockStarDao() }
+    single {  Room.databaseBuilder(androidContext(), RockStarDataBase::class.java, "RockStarApp.db")
+        .build() }
+    single { (get<RockStarDataBase>().RoomRockStarDao()) }
 }
