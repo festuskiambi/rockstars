@@ -83,7 +83,6 @@ dependencies {
 
     //room
     implementation deps.room.runtime
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt deps.room.compiler
 
     //kotlin
