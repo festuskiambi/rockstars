@@ -9,6 +9,6 @@ import retrofit2.http.GET
  */
 interface ApiInterface {
 
-    @GET("https://api.myjson.com/bins/19791b")
-    suspend fun getRockSatars(): Response<List<ApiRockStar>>
+    @GET("19791b")
+    suspend fun getRockStars(): Response<List<ApiRockStar>>
 }

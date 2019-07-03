@@ -30,15 +30,11 @@ class HomeViewModel(
 
     private fun getRockStars() = viewModelScope.launch(dispatchers.main) {
 
-        withContext(dispatchers.io) {
-
-            val rockStarResult = iRemoteRockStarUseCase.getRockStars()
-
-            when(rockStarResult){
+            when(val rockStarResult = iRemoteRockStarUseCase.getRockStars()){
                 is Result.Value -> rockStarsListState.value = rockStarResult.value
                 is Result.Error -> _snackbarError.value =  Event(R.string.error)
             }
         }
 
-    }
+
 }

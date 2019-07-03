@@ -57,11 +57,11 @@ class RemoteRemoteRockStarRepositoryImplTest {
 
         val rockStarsList = listOf(getRockStar())
 
-        coEvery { apiInterface.getRockSatars().body() } returns apiRockStarsList
+        coEvery { apiInterface.getRockStars().body() } returns apiRockStarsList
 
         val result = repository.getRockStars()
 
-        coVerify { apiInterface.getRockSatars() }
+        coVerify { apiInterface.getRockStars() }
         if (result is Result.Value) assertEquals(result.value, rockStarsList)
         else assertTrue { false }
     }
@@ -70,11 +70,11 @@ class RemoteRemoteRockStarRepositoryImplTest {
     @Test
     fun `on get remote rockStars failure`() = runBlocking {
 
-        coEvery { apiInterface.getRockSatars().body()} returns null
+        coEvery { apiInterface.getRockStars().body()} returns null
 
         val result = repository.getRockStars()
 
-        coVerify { apiInterface.getRockSatars() }
+        coVerify { apiInterface.getRockStars() }
         assertTrue { result is Result.Error }
     }
 
