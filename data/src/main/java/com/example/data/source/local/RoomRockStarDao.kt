@@ -11,12 +11,12 @@ import com.example.data.datamodels.RoomRockStar
 interface RoomRockStarDao {
 
     @Query("SELECT * FROM bookmarks ORDER BY `index`")
-    fun getNotes(): List<RoomRockStar>
+    fun getRockStars(): List<RoomRockStar>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertOrUpdateNote(rockStar: RoomRockStar): Long
+    fun insertRockStar(rockStar: RoomRockStar): Long
 
     @Delete
-    fun deleteNote(rockStar: RoomRockStar)
+    fun deleteRockStar(rockStar: RoomRockStar)
 
 }

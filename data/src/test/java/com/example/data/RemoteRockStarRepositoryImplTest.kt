@@ -2,7 +2,7 @@ package com.example.data
 
 import com.example.data.datamodels.ApiRockStar
 import com.example.data.source.remote.ApiInterface
-import com.example.data.source.remote.RemoteRemoteRockStarRepositoryImpl
+import com.example.data.source.remote.RemoteRockStarRepositoryImpl
 import com.example.domain.common.Result
 import com.example.domain.entity.Entity
 import io.mockk.clearAllMocks
@@ -20,10 +20,10 @@ import kotlin.test.assertTrue
  *
  * @see [Testing documentation](http://d.android.com/tools/testing)
  */
-class RemoteRemoteRockStarRepositoryImplTest {
+class RemoteRockStarRepositoryImplTest {
 
     private val apiInterface: ApiInterface = mockk()
-    val repository = RemoteRemoteRockStarRepositoryImpl(apiInterface)
+    val repository = RemoteRockStarRepositoryImpl(apiInterface)
 
     fun getRockStar(
         id: String = "5d134ac7d79b92c00074f892",
