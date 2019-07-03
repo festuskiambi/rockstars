@@ -1,6 +1,7 @@
 package com.example.rockstars
 
 import android.app.Application
+import com.example.rockstars.di.localModule
 import com.example.rockstars.di.networkModule
 import com.example.rockstars.di.rockStarsModule
 import org.koin.android.ext.koin.androidContext
@@ -18,7 +19,7 @@ class RockstarApplication : Application() {
             // declare used Android context
             androidContext(this@RockstarApplication)
             // declare modules
-            modules(listOf(networkModule, rockStarsModule))
+            modules(listOf(networkModule, rockStarsModule, localModule))
         }
 
     }
