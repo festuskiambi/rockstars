@@ -19,9 +19,9 @@ class RockStarUseCaseImplTest {
 
     private val repositoryRemote: IRemoteRockStarRepository = mockk()
 
-    val useCase = RockStarUseCaseImpl(repositoryRemote)
+    private val useCase = RockStarUseCaseImpl(repositoryRemote)
 
-    fun getRockStar(
+    private fun getRockStar(
         id: String = "5d134ac7d79b92c00074f892",
         index: Int = 0,
         picture: String = """
@@ -52,7 +52,7 @@ class RockStarUseCaseImplTest {
     fun `On get rockStars error`() = runBlocking {
         coEvery { repositoryRemote.getRockStars() } returns Result.build { throw RockstarsError.RemoteIOException }
 
-        val  result = useCase.getRockStars()
+        val result = useCase.getRockStars()
 
         coVerify { repositoryRemote.getRockStars() }
         assertTrue { result is Result.Error }
