@@ -10,7 +10,12 @@ import org.koin.dsl.module
  */
 
 val localModule = module {
-    single {  Room.databaseBuilder(androidContext(), RockStarDataBase::class.java, "RockStarApp.db")
-        .build() }
-    single { (get<RockStarDataBase>().RoomRockStarDao()) }
+    single {
+        Room.databaseBuilder(androidContext(), RockStarDataBase::class.java, "RockStarApp.db")
+            .build()
+    }
+
+    single { (get<RockStarDataBase>().rockStarDao()) }
+
+    single { (get<RockStarDataBase>().userDao())}
 }
