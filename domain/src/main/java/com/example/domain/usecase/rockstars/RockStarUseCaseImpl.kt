@@ -8,7 +8,7 @@ import java.lang.Exception
 /**
  * Created by Festus Kiambi on 7/1/19.
  */
-class RemoteRockStarUseCaseImpl(private val repository: IRemoteRockStarRepository): IRemoteRockStarUseCase {
+class RockStarUseCaseImpl(private val repository: IRemoteRockStarRepository): IRockStarUseCase {
     override suspend fun getRockStars(): Result<Exception, List<Entity.RockStar>> {
       return  repository.getRockStars()
     }

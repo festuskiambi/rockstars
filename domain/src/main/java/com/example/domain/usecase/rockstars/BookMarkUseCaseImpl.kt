@@ -7,7 +7,7 @@ import com.example.domain.repository.rockstar.ILocalRockStarRepository
 /**
  * Created by Festus Kiambi on 7/3/19.
  */
-class LocalBookMarkUseCaseImpl(private val repository: ILocalRockStarRepository): ILocalBookMarkUseCase {
+class BookMarkUseCaseImpl(private val repository: ILocalRockStarRepository): IBookMarkUseCase {
     override suspend fun getBookmarks(): Result<Exception, List<Entity.RockStar>> {
         return  repository.getBookmarks()
     }

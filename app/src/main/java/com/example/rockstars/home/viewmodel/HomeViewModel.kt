@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.common.Result
 import com.example.domain.entity.Entity
-import com.example.domain.usecase.rockstars.ILocalBookMarkUseCase
-import com.example.domain.usecase.rockstars.IRemoteRockStarUseCase
+import com.example.domain.usecase.rockstars.IBookMarkUseCase
+import com.example.domain.usecase.rockstars.IRockStarUseCase
 import com.example.rockstars.R
 import com.example.rockstars.common.AppDispatchers
 import com.example.rockstars.common.BaseViewModel
@@ -17,8 +17,8 @@ import kotlinx.coroutines.launch
  * Created by Festus Kiambi on 7/2/19.
  */
 class HomeViewModel(
-    private val iRemoteRockStarUseCase: IRemoteRockStarUseCase,
-    private val iLocalBookMarkUseCase: ILocalBookMarkUseCase,
+    private val iRockStarUseCase: IRockStarUseCase,
+    private val iBookMarkUseCase: IBookMarkUseCase,
     private val dispatchers: AppDispatchers
 ) : BaseViewModel() {
 
@@ -31,14 +31,14 @@ class HomeViewModel(
 
     private fun getRockStars() = viewModelScope.launch(dispatchers.main) {
 
-        when (val rockStarResult = iRemoteRockStarUseCase.getRockStars()) {
+        when (val rockStarResult = iRockStarUseCase.getRockStars()) {
             is Result.Value -> rockStarsListState.value = rockStarResult.value
             is Result.Error -> _snackbarError.value = Event(R.string.error)
         }
     }
 
     fun addBookMark(rockStar: Entity.RockStar) = viewModelScope.launch(dispatchers.io){
-      iLocalBookMarkUseCase.createBookMark(rockStar)
+      iBookMarkUseCase.createBookMark(rockStar)
     }
 
 }

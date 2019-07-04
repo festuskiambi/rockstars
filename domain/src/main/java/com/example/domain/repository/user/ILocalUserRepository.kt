@@ -10,4 +10,6 @@ interface ILocalUserRepository {
 
     suspend fun createOrUpdateUser(user: Entity.User): Result<Exception, Unit>
 
+    suspend fun getUserById(userId: Int): Result<java.lang.Exception,Entity.User>
+
 }

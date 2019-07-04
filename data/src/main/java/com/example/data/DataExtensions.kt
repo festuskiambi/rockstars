@@ -43,6 +43,12 @@ internal val Entity.User.toRoomUser: RoomUser
         this.picture
     )
 
+internal val RoomUser.toEntityUser: Entity.User
+    get() = Entity.User(
+        this.id,
+        this.name,
+        this.picture
+    )
 
 internal fun List<ApiRockStar>.toRemoteEntityRockstarList(): List<Entity.RockStar> = this.flatMap {
     listOf(it.toEntityRockStar)

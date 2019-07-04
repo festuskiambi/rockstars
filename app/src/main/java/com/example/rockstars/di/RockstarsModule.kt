@@ -4,10 +4,10 @@ import com.example.data.source.local.LocalRockStarRepositoryImpl
 import com.example.data.source.remote.RemoteRockStarRepositoryImpl
 import com.example.domain.repository.rockstar.ILocalRockStarRepository
 import com.example.domain.repository.rockstar.IRemoteRockStarRepository
-import com.example.domain.usecase.rockstars.ILocalBookMarkUseCase
-import com.example.domain.usecase.rockstars.IRemoteRockStarUseCase
-import com.example.domain.usecase.rockstars.LocalBookMarkUseCaseImpl
-import com.example.domain.usecase.rockstars.RemoteRockStarUseCaseImpl
+import com.example.domain.usecase.rockstars.IBookMarkUseCase
+import com.example.domain.usecase.rockstars.IRockStarUseCase
+import com.example.domain.usecase.rockstars.BookMarkUseCaseImpl
+import com.example.domain.usecase.rockstars.RockStarUseCaseImpl
 import com.example.rockstars.common.AppDispatchers
 import com.example.rockstars.bookmarks.viewmodel.BookmarkViewModel
 import com.example.rockstars.home.viewmodel.HomeViewModel
@@ -23,7 +23,7 @@ val rockStarsModule = module {
 
     factory { RemoteRockStarRepositoryImpl(get()) as IRemoteRockStarRepository }
 
-    factory { RemoteRockStarUseCaseImpl(get()) as IRemoteRockStarUseCase }
+    factory { RockStarUseCaseImpl(get()) as IRockStarUseCase }
 
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
 
@@ -31,7 +31,7 @@ val rockStarsModule = module {
 
     factory { LocalRockStarRepositoryImpl(get()) as ILocalRockStarRepository }
 
-    factory { LocalBookMarkUseCaseImpl(get()) as ILocalBookMarkUseCase }
+    factory { BookMarkUseCaseImpl(get()) as IBookMarkUseCase }
 
     viewModel { BookmarkViewModel(get(), get()) }
 
