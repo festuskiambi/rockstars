@@ -10,7 +10,7 @@ import com.example.domain.repository.user.ILocalUserRepository
  * Created by Festus Kiambi on 7/4/19.
  */
 class LocalUserRepositoryImpl(private val userDao: RoomUserDao) : ILocalUserRepository {
-    override suspend fun getUserById(userId: Int): Result<java.lang.Exception, Entity.User> {
+    override suspend fun getUserById(userId: Int): Result<Exception, Entity.User> {
         return  Result.build { userDao.getUserById(userId).toEntityUser }
     }
 

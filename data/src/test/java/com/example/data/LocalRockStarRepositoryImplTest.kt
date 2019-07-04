@@ -48,7 +48,6 @@ class LocalRockStarRepositoryImplTest {
         clearAllMocks()
     }
 
-
     @Test
     fun `on get bookmarks success`() = runBlocking {
         val roomRockStarsList = listOf(getRoomRockStar())
@@ -62,7 +61,6 @@ class LocalRockStarRepositoryImplTest {
         if (result is Result.Value) assertEquals(result.value, rockStarsList)
         else assertTrue { false }
     }
-
 
     @Test
     fun `on create bookmark`() = runBlocking {

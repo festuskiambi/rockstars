@@ -18,7 +18,7 @@ import kotlin.test.assertTrue
 /**
  * Created by Festus Kiambi on 7/4/19.
  */
-class UserUseCaeImplTest {
+class UserUseCaseImplTest {
 
     private val repository: ILocalUserRepository = mockk()
 
