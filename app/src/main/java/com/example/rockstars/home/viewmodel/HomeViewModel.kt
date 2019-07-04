@@ -29,7 +29,7 @@ class HomeViewModel(
         getRockStars()
     }
 
-    private fun getRockStars() = viewModelScope.launch(dispatchers.main) {
+     fun getRockStars() = viewModelScope.launch(dispatchers.main) {
 
         when (val rockStarResult = iRockStarUseCase.getRockStars()) {
             is Result.Value -> rockStarsListState.value = rockStarResult.value

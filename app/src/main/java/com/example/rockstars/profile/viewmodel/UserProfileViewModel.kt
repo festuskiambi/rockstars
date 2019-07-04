@@ -19,6 +19,4 @@ class UserProfileViewModel(
         val user = Entity.User(0, name, pictureUrl)
         iUserUseCase.createOrUpdateUser(user)
     }
-
-
 }
