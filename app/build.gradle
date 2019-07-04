@@ -85,6 +85,9 @@ dependencies {
     implementation deps.room.runtime
     kapt deps.room.compiler
 
+    //quick_permissions_kotlin
+    implementation deps.quickpermissions.kotlin
+
     //kotlin
     implementation deps.kotlin.stdlib
     implementation deps.kotlin.coroutines_core

@@ -28,6 +28,7 @@ versions.ktx_fragment = "1.0.0"
 versions.glide = "4.8.0"
 versions.nav_version_ktx = "2.1.0-alpha05"
 versions.circleimageview = "3.0.0"
+versions.quick_permissions_kotlin="0.4.0"
 
 def support = [:]
 support.annotations = "androidx.annotation:annotation:$versions.support"
@@ -70,6 +71,10 @@ def circleimageview = [:]
 circleimageview.image = "de.hdodenhof:circleimageview:$versions.circleimageview"
 deps.circleimageview = circleimageview
 
+def quickpermissions = [:]
+quickpermissions.kotlin = "com.github.quickpermissions:quickpermissions-kotlin:$versions.quick_permissions_kotlin"
+deps.quickpermissions = quickpermissions
+
 def room = [:]
 room.runtime = "androidx.room:room-runtime:$versions.room"
 room.compiler = "androidx.room:room-compiler:$versions.room"
@@ -103,8 +108,10 @@ ext.deps = deps
 def addRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
+    handler.maven { url "http://jitpack.io/" }
     handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     handler.maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+
 }
 
 ext.addRepos = this.&addRepos
