@@ -9,14 +9,17 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 
 import com.example.rockstars.R
+import com.example.rockstars.profile.viewmodel.UserProfileViewModel
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import kotlinx.android.synthetic.main.fragment_profile.*
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -24,9 +27,12 @@ import java.util.*
 
 class ProfileFragment : Fragment() {
 
+    private val viewModel: UserProfileViewModel by viewModel()
+
     val REQUEST_TAKE_PHOTO = 1
 
     private var currentPhotoPath = ""
+    private var name = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,14 +45,11 @@ class ProfileFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         initView()
-
     }
-
 
     private fun initView() {
         iv_profile_picture.setOnClickListener {
             takeProfilePictureWithPermissions()
-
         }
     }
 
@@ -64,6 +67,33 @@ class ProfileFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.profile_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.save -> saveUserProfile()
+        }
+        return true
+    }
+
+    private fun saveUserProfile() {
+
+        name = et_user_name.text.toString()
+
+        if (currentPhotoPath.isNotEmpty() && name.isNotEmpty()) {
+            viewModel.newUserProfile(currentPhotoPath, name)
+            Toast.makeText(
+                context,
+                "Your Profile was Saved",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            Toast.makeText(
+                context,
+                "Click on the profile icon to take a picture and fill in your name",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun dispatchTakePictureIntent() {
