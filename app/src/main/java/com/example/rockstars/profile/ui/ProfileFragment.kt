@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-
+import androidx.lifecycle.Observer
 import com.example.rockstars.R
 import com.example.rockstars.profile.viewmodel.UserProfileViewModel
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
@@ -45,6 +45,22 @@ class ProfileFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         initView()
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.user.observe(
+            this,
+            Observer { user ->
+                if (user != null) {
+                    currentPhotoPath = user.picture
+                    et_user_name.setText(user.name)
+                    Glide.with(iv_profile_picture)
+                        .load(user.picture)
+                        .into(iv_profile_picture)
+                }
+            }
+        )
     }
 
     private fun initView() {
@@ -80,7 +96,7 @@ class ProfileFragment : Fragment() {
 
         name = et_user_name.text.toString()
 
-        if (currentPhotoPath.isNotEmpty() && name.isNotEmpty()) {
+        if (name.isNotEmpty()) {
             viewModel.newUserProfile(currentPhotoPath, name)
             Toast.makeText(
                 context,
@@ -90,7 +106,7 @@ class ProfileFragment : Fragment() {
         } else {
             Toast.makeText(
                 context,
-                "Click on the profile icon to take a picture and fill in your name",
+                "Fill in your name",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -135,12 +151,9 @@ class ProfileFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == AppCompatActivity.RESULT_OK) {
-
             addImageToGallery()
-
-            Glide.with(iv_profile_picture)
-                .load(currentPhotoPath)
-                .into(iv_profile_picture)
+            name = et_user_name.text.toString()
+            viewModel.newUserProfile(currentPhotoPath, name)
         }
     }
 
