@@ -23,9 +23,9 @@ import kotlin.test.assertTrue
 class RemoteRockStarRepositoryImplTest {
 
     private val apiInterface: ApiInterface = mockk()
-    val repository = RemoteRockStarRepositoryImpl(apiInterface)
+    private val repository = RemoteRockStarRepositoryImpl(apiInterface)
 
-    fun getRockStar(
+    private fun getRockStar(
         id: String = "5d134ac7d79b92c00074f892",
         index: Int = 0,
         picture: String = """
@@ -35,7 +35,7 @@ class RemoteRockStarRepositoryImplTest {
         about: String = "CCO"
     ) = Entity.RockStar(id, index, name, picture, about)
 
-    fun getApiRockStar(
+    private fun getApiRockStar(
         id: String = "5d134ac7d79b92c00074f892",
         index: Int = 0,
         picture: String = """
@@ -43,7 +43,7 @@ class RemoteRockStarRepositoryImplTest {
         """,
         name: String = "Marc",
         about: String = "CCO"
-    ) = ApiRockStar(name,about,index,id,picture)
+    ) = ApiRockStar(name, about, index, id, picture)
 
     @Before
     fun setUpRedundantMocks() {
@@ -70,7 +70,7 @@ class RemoteRockStarRepositoryImplTest {
     @Test
     fun `on get remote rockStars failure`() = runBlocking {
 
-        coEvery { apiInterface.getRockStars().body()} returns null
+        coEvery { apiInterface.getRockStars().body() } returns null
 
         val result = repository.getRockStars()
 
