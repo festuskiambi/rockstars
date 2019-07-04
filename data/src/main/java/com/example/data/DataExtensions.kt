@@ -2,6 +2,7 @@ package com.example.data
 
 import com.example.data.datamodels.ApiRockStar
 import com.example.data.datamodels.RoomRockStar
+import com.example.data.datamodels.RoomUser
 import com.example.domain.entity.Entity
 
 /**
@@ -33,6 +34,13 @@ internal val Entity.RockStar.toRoomRockStar: RoomRockStar
         this.name,
         this.picture,
         this.about
+    )
+
+internal val Entity.User.toRoomUser: RoomUser
+    get() = RoomUser(
+        this.id,
+        this.name,
+        this.picture
     )
 
 
