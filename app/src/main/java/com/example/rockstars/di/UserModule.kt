@@ -2,8 +2,8 @@ package com.example.rockstars.di
 
 import com.example.data.source.local.LocalUserRepositoryImpl
 import com.example.domain.repository.user.ILocalUserRepository
-import com.example.domain.usecase.user.ILocalUserUseCase
-import com.example.domain.usecase.user.LocalUserUseCaseImpl
+import com.example.domain.usecase.user.IUserUseCase
+import com.example.domain.usecase.user.UserUseCaseImpl
 import org.koin.dsl.module
 
 /**
@@ -12,7 +12,7 @@ import org.koin.dsl.module
 
 val userModule = module {
 
-    factory { LocalUserUseCaseImpl(get()) as ILocalUserUseCase }
+    factory { UserUseCaseImpl(get()) as IUserUseCase }
 
     factory { LocalUserRepositoryImpl(get()) as ILocalUserRepository }
 }

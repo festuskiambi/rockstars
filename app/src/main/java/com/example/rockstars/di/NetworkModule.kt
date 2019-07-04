@@ -18,8 +18,7 @@ val networkModule = module {
 
     factory { OkHttpClient.Builder().build() }
 
-    factory {  Moshi.Builder().add(KotlinJsonAdapterFactory()).build()}
-
+    factory { Moshi.Builder().add(KotlinJsonAdapterFactory()).build() }
 
     single {
         Retrofit.Builder()
@@ -29,7 +28,7 @@ val networkModule = module {
             .build()
     }
 
-    factory{ get<Retrofit>().create(ApiInterface::class.java) }
+    factory { get<Retrofit>().create(ApiInterface::class.java) }
 }
 
 

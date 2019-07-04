@@ -7,7 +7,11 @@ import com.example.domain.repository.user.ILocalUserRepository
 /**
  * Created by Festus Kiambi on 7/3/19.
  */
-class LocalUserUseCaseImpl(private val iLocalUserRepository: ILocalUserRepository): ILocalUserUseCase {
+class UserUseCaseImpl(private val iLocalUserRepository: ILocalUserRepository): IUserUseCase {
+    override suspend fun getUserById(userId: Int): Result<java.lang.Exception, Entity.User> {
+        return iLocalUserRepository.getUserById(userId)
+    }
+
     override suspend fun createOrUpdateUser(user: Entity.User): Result<Exception, Unit> {
         return iLocalUserRepository.createOrUpdateUser(user)
     }

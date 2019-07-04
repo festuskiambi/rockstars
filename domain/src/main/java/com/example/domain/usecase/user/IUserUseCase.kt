@@ -6,7 +6,9 @@ import com.example.domain.entity.Entity
 /**
  * Created by Festus Kiambi on 7/3/19.
  */
-interface ILocalUserUseCase {
+interface IUserUseCase {
 
     suspend fun createOrUpdateUser(user: Entity.User): Result<Exception, Unit>
+
+    suspend fun getUserById(userId: Int): Result<java.lang.Exception,Entity.User>
 }

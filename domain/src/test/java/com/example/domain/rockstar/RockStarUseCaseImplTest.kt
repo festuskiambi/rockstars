@@ -2,7 +2,7 @@ package com.example.domain.rockstar
 
 import com.example.domain.entity.Entity
 import com.example.domain.repository.rockstar.IRemoteRockStarRepository
-import com.example.domain.usecase.rockstars.RemoteRockStarUseCaseImpl
+import com.example.domain.usecase.rockstars.RockStarUseCaseImpl
 import com.example.domain.common.Result
 import com.example.domain.common.RockstarsError
 import io.mockk.*
@@ -19,7 +19,7 @@ class RockStarUseCaseImplTest {
 
     private val repositoryRemote: IRemoteRockStarRepository = mockk()
 
-    val useCase = RemoteRockStarUseCaseImpl(repositoryRemote)
+    val useCase = RockStarUseCaseImpl(repositoryRemote)
 
     fun getRockStar(
         id: String = "5d134ac7d79b92c00074f892",

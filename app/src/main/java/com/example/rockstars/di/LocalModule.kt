@@ -17,5 +17,5 @@ val localModule = module {
 
     single { (get<RockStarDataBase>().rockStarDao()) }
 
-    single { (get<RockStarDataBase>().userDao())}
+    single { (get<RockStarDataBase>().userDao()) }
 }

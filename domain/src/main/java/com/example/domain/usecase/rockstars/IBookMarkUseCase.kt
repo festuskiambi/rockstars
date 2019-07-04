@@ -7,7 +7,7 @@ import com.example.domain.common.Result
  * Created by Festus Kiambi on 7/3/19.
  */
 
-interface ILocalBookMarkUseCase {
+interface IBookMarkUseCase {
 
     suspend fun createBookMark(rockStar: Entity.RockStar): Result<Exception, Unit>
 
