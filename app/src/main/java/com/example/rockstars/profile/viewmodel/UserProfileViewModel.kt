@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.common.Result
-
 import com.example.domain.entity.Entity
 import com.example.domain.usecase.user.IUserUseCase
 import com.example.rockstars.common.AppDispatchers
@@ -18,7 +17,6 @@ class UserProfileViewModel(
     private val iUserUseCase: IUserUseCase,
     private val dispatchers: AppDispatchers
 ) : BaseViewModel() {
-
     private val userState = MutableLiveData<Entity.User>()
     val user: LiveData<Entity.User> get() = userState
 

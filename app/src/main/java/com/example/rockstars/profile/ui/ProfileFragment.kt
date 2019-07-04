@@ -95,7 +95,6 @@ class ProfileFragment : Fragment() {
     private fun saveUserProfile() {
 
         name = et_user_name.text.toString()
-
         if (name.isNotEmpty()) {
             viewModel.newUserProfile(currentPhotoPath, name)
             Toast.makeText(
@@ -154,6 +153,7 @@ class ProfileFragment : Fragment() {
             addImageToGallery()
             name = et_user_name.text.toString()
             viewModel.newUserProfile(currentPhotoPath, name)
+
         }
     }
 
