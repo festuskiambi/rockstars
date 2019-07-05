@@ -28,6 +28,14 @@ This is a modular android Application built with a clean MVVM architecture.
 
 The presentation layer of this application include the views(fragments and activities) and the Viewmodels which interact with the data layer through Use cases defined in the domain layer.
 
+### Screen shots
+
+<img src="https://github.com/festuskiambi/rockstars/blob/master/screenshots/img1.jpg" width="425"/>  <img 
+src="https://github.com/festuskiambi/rockstars/blob/master/screenshots/img2.jpg" width="425"/>
+
+<img src="https://github.com/festuskiambi/rockstars/blob/master/screenshots/img3.jpg" width="425"/>  <img 
+src="https://github.com/festuskiambi/rockstars/blob/master/screenshots/img4.jpg" width="425"/>
+
 ### Domain
 
 The Domain Layer of this application has three primary purposes:
